@@ -55,8 +55,7 @@ impl<'de> DeserializeSeed<'de> for SchemaData {
         let dialect = self.data.get("$schema").map_or(Ok(self.dialect), |v| {
             v.deserialize_string(DialectVisitor {})
         })?;
-
-        _ = dialect.unwrap();
+        dbg!(dialect);
         todo!()
     }
 }
