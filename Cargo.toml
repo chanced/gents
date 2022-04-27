@@ -2,8 +2,8 @@
 name = "gents"
 version = "0.0.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT or Apache-2.0"
+description = "generator based on JSON Schema"
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }
