@@ -52,15 +52,11 @@ impl<'de> DeserializeSeed<'de> for SchemaData {
     where
         D: serde::Deserializer<'de>,
     {
-        let dialect = self
-            .data
-            .get("$schema")
-            .map_or(Ok(self.dialect), |v| {
-                v.deserialize_string(DialectVisitor {})
-            })
-            .map_err(|e| todo!());
+        let dialect = self.data.get("$schema").map_or(Ok(self.dialect), |v| {
+            v.deserialize_string(DialectVisitor {})
+        })?;
 
-        dbg!(dialect);
+        _ = dialect.unwrap();
         todo!()
     }
 }
