@@ -1,5 +1,7 @@
 mod error;
 pub mod schema;
+use std::marker::PhantomData;
+
 pub use error::*;
 pub use schema::{Schema, SchemaOrSchemas};
 

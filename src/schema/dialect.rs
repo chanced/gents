@@ -47,7 +47,16 @@ impl ToString for Dialect {
         .to_string()
     }
 }
-
+impl<'de> Dialect {
+    pub fn name(&self) -> &str {
+        match self {
+            Dialect::Draft202012 => "2020-12",
+            Dialect::Draft201909 => "2019-09",
+            Dialect::Draft07 => "07",
+            Dialect::Draft04 => "04",
+        }
+    }
+}
 impl<'de> Deserialize<'de> for Dialect {
     fn deserialize<D>(deserializer: D) -> StdResult<Self, D::Error>
     where
